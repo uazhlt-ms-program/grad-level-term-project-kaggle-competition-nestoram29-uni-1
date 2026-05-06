@@ -1,13 +1,14 @@
-FROM pytorch/pytorch:1.9.1-cuda11.1-cudnn8-runtime
+FROM uazhlt/pa-memm-classifier:latest
 
-LABEL author="Gus Hahn-Powell"
+LABEL author="Nestor Molina"
 LABEL description="Default container definition for class competition."
 
 # Create app directory
 WORKDIR /app
 
-RUN pip install -U pytorch-lightning \
-    graphviz==0.16 \
+RUN pip install --timeout 5000 -U \
+    scikit-learn \
+    pandas \
     "ipython>=7.20.0,<8" \
     notebook==6.4.6 \
     jupyter-client==7.1.2 \
